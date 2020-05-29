@@ -42,7 +42,125 @@ send me a DM to check your pull request
  */
 
 #include <iostream>
+
+struct FloatType
+{
+    float ftResult;
+    float add( float lhs, float rhs );
+    float subtract( float lhs, float rhs );
+    float multiply( float lhs, float rhs );
+    float divide( float lhs, float rhs );
+};
+
+float FloatType::add( float lhs, float rhs )
+{
+    return lhs + rhs;
+}
+
+float FloatType::subtract( float lhs, float rhs )
+{
+    return lhs - rhs;
+}
+
+float FloatType::multiply( float lhs, float rhs )
+{
+    return lhs * rhs;
+}
+
+float FloatType::divide( float lhs, float rhs )
+{
+    if ( rhs == 0.f )
+        std::cout << "Dividing a float by zero is unsafe ";
+        return lhs / rhs;
+    /*else
+    {
+        std::cout << "result of ft.divide(): " << ftResult <<std::endl;
+        return lhs / rhs;
+    }*/
+}
+
+struct DoubleType
+{
+    double add( double lhs, double rhs );
+    double subtract( double lhs, double rhs );
+    double multiply( double lhs, double rhs );
+    double divide( double lhs, double rhs );
+};
+
+//void Computer::displayVolume(int loudness)
+double DoubleType::add( double lhs, double rhs )
+{
+    return lhs + rhs;
+}
+
+double DoubleType::subtract( double lhs, double rhs )
+{
+    return lhs - rhs;
+}
+
+double DoubleType::multiply( double lhs, double rhs )
+{
+    return lhs * rhs;
+}
+
+double DoubleType::divide( double lhs, double rhs )
+{
+    if ( rhs == 0.0 )
+        std::cout << "Dividing a double by zero is unsafe";
+        return lhs / rhs;
+}
+struct IntType
+{
+    int add( int lhs, int rhs );
+    int subtract( int lhs, int rhs );
+    int multiply( int lhs, int rhs );
+    int divide( int lhs, int rhs );
+};
+
+int IntType::add( int lhs, int rhs )
+{
+    return lhs + rhs;
+}
+
+int IntType::subtract( int lhs, int rhs )
+{
+    return lhs - rhs;
+}
+
+int IntType::multiply( int lhs, int rhs )
+{
+    return lhs * rhs;
+}
+
+int IntType::divide( int lhs, int rhs )
+{
+    if ( rhs == 0 )
+    {
+        std::cout << "Dividing an int by zero will crash the system. Please try again.";
+        return rhs;
+        
+    }    
+    else
+    {
+        return lhs / rhs;
+    }
+        
+
+}
 int main()
 {
+    FloatType ft;
+    auto ftResult = ft.divide(3.2f, 0.f );
+    std::cout << "result of ft.divide(): " << ftResult <<std::endl;
+
+    DoubleType dbl;
+    auto dblResult = dbl.subtract(6.2, 23.0 );
+    std::cout << "result of dbl.add(): " << dblResult <<std::endl;
+    
+
+    IntType i;
+    auto iResult = i.divide(4,0);
+    std::cout << "result of i.divide(): " << iResult << std::endl;
+
     std::cout << "good to go!" << std::endl;
 }
