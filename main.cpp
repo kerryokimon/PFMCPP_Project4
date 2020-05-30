@@ -40,7 +40,7 @@
 
 struct FloatType
 {
-    float ftResult;
+    
     float add( float lhs, float rhs );
     float subtract( float lhs, float rhs );
     float multiply( float lhs, float rhs );
@@ -65,13 +65,12 @@ float FloatType::multiply( float lhs, float rhs )
 float FloatType::divide( float lhs, float rhs )
 {
     if ( rhs == 0.f )
-        std::cout << "Dividing a float by zero is unsafe ";
+        {
+            std::cout << "" << std::endl;
+            std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
+        }
         return lhs / rhs;
-    /*else
-    {
-        std::cout << "result of ft.divide(): " << ftResult <<std::endl;
-        return lhs / rhs;
-    }*/
+    
 }
 
 struct DoubleType
@@ -82,7 +81,7 @@ struct DoubleType
     double divide( double lhs, double rhs );
 };
 
-//void Computer::displayVolume(int loudness)
+
 double DoubleType::add( double lhs, double rhs )
 {
     return lhs + rhs;
@@ -101,7 +100,10 @@ double DoubleType::multiply( double lhs, double rhs )
 double DoubleType::divide( double lhs, double rhs )
 {
     if ( rhs == 0.0 )
-        std::cout << "Dividing a double by zero is unsafe";
+        {
+            std::cout << "" << std::endl;
+            std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
+        }
         return lhs / rhs;
 }
 struct IntType
@@ -131,17 +133,17 @@ int IntType::divide( int lhs, int rhs )
 {
     if ( rhs == 0 )
     {
-        std::cout << "Dividing an int by zero will crash the system. Please try again.";
-        return rhs;
+        std::cout << "error, integer division by zero will crash the program!" << std::endl;
+        std::cout << "returning lhs" << std::endl;
+        return lhs;
         
     }    
     else
     {
         return lhs / rhs;
     }
-        
-
 }
+
 #include <iostream>
 int main() 
 {
